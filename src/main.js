@@ -475,7 +475,11 @@ render(siteMainElement, createBoardTemplate());
 const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 render(taskListElement, createTaskEditTemplate());
 
-new Array(TASK_COUNT).fill(``).forEach(() => {
+const repeat = (count, fn) => {
+  Array(count).fill(``).forEach(fn);
+};
+
+repeat(TASK_COUNT, () => {
   render(taskListElement, createTaskTemplate());
 });
 
