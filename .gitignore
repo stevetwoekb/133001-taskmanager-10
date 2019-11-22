@@ -11,5 +11,6 @@ Thumbs.db
 *.log*
 node_modules/
 
-# Папка с собранными файлами проекта
-build/
+# Aайлы сборки
+build/*.js
+build/*.js.map
