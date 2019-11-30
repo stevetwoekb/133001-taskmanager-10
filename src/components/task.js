@@ -12,9 +12,10 @@ const createHashtagsMarkup = (hashtags) => {
         #${hashtag}
       </span>
       `
-    )
-  })
-}
+    );
+  });
+};
+
 
 export const createTaskTemplate = (task) => {
   const {description, tags, dueDate, color, repeatingDays} = task;
