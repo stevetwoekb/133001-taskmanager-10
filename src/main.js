@@ -28,7 +28,7 @@ render(siteMainElement, createBoardTemplate());
 
 const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 
-render(taskListElement, createTaskEditTemplate(tasks[0]), `beforeend`);
+render(taskListElement, createTaskEditTemplate(tasks[0]));
 let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
 tasks.slice(1, showingTasksCount).forEach((task) => render(taskListElement, createTaskTemplate(task), `beforeend`));
 

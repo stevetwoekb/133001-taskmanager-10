@@ -69,7 +69,7 @@ export const createTaskTemplate = (task) => {
             </div>
             <div class="card__hashtag">
                 <div class="card__hashtag-list">
-                  ${hashtags}
+                ${hashtags.join(` `)}
                 </div>
           </div>
         </div>
