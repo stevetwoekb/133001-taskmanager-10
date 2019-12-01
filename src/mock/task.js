@@ -16,7 +16,7 @@ const defaultRepeatingDays = {
   'su': false,
 };
 
-const Tags = [
+const tags = [
   `homework`,
   `theory`,
   `practice`,
@@ -47,19 +47,11 @@ const getRandomDate = () => {
 
 
 const generateRepeatingDays = () => {
-  return Object.assign({}, defaultRepeatingDays, {
-    'mo': Math.random() > 0.5,
-    'tu': Math.random() > 0.5,
-    'we': Math.random() > 0.5,
-    'th': Math.random() > 0.5,
-    'fr': Math.random() > 0.5,
-    'sa': Math.random() > 0.5,
-    'su': Math.random() > 0.5,
-  });
+  return Object.keys(defaultRepeatingDays).reduce((acc, cur) => Object.assign(acc, {[cur]: Math.random() > 0.5}), {});
 };
 
-const generateTags = (tags) => {
-  return tags
+const generateTags = (array) => {
+  return array
     .filter(() => Math.random() > 0.5)
     .slice(0, 3);
 };
@@ -72,7 +64,7 @@ const generateTask = () => {
     description: getRandomArrayItem(descriptionItems),
     dueDate,
     repeatingDays: dueDate ? defaultRepeatingDays : generateRepeatingDays(),
-    tags: new Set(generateTags(Tags)),
+    tags: new Set(generateTags(tags)),
     color: getRandomArrayItem(Colors),
     isFavorite: Math.random() > 0.5,
     isArchive: Math.random() > 0.5,
